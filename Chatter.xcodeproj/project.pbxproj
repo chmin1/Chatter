@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		0F2241A780340FE1421D9C22 /* Pods_Chatter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E623790CD9A5C6E3A52237 /* Pods_Chatter.framework */; };
 		9FEC294AABBD13247CC69EFB /* Pods_ChatterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E02A6CDE638B78B4B95CE3 /* Pods_ChatterTests.framework */; };
+		F95B59701FDADC33006AEC85 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95B596F1FDADC33006AEC85 /* LoginController.swift */; };
+		F95B59721FDAE3D3006AEC85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95B59711FDAE3D3006AEC85 /* SignUpViewController.swift */; };
 		F9ABE12E1FD33B0800DBDF9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ABE12D1FD33B0800DBDF9E /* AppDelegate.swift */; };
-		F9ABE1301FD33B0800DBDF9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ABE12F1FD33B0800DBDF9E /* ViewController.swift */; };
 		F9ABE1331FD33B0800DBDF9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9ABE1311FD33B0800DBDF9E /* Main.storyboard */; };
 		F9ABE1351FD33B0800DBDF9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9ABE1341FD33B0800DBDF9E /* Assets.xcassets */; };
 		F9ABE1381FD33B0800DBDF9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9ABE1361FD33B0800DBDF9E /* LaunchScreen.storyboard */; };
@@ -46,9 +47,10 @@
 		E34794E81EC49A43A32700AA /* Pods-ChatterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatterTests/Pods-ChatterTests.release.xcconfig"; sourceTree = "<group>"; };
 		F62AB6805853F2BBAC5B501D /* Pods-ChatterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatterUITests/Pods-ChatterUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F685D4F21A87469292DF22B8 /* Pods-Chatter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chatter/Pods-Chatter.release.xcconfig"; sourceTree = "<group>"; };
+		F95B596F1FDADC33006AEC85 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		F95B59711FDAE3D3006AEC85 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F9ABE12A1FD33B0800DBDF9E /* Chatter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chatter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9ABE12D1FD33B0800DBDF9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F9ABE12F1FD33B0800DBDF9E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F9ABE1321FD33B0800DBDF9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F9ABE1341FD33B0800DBDF9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9ABE1371FD33B0800DBDF9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -137,8 +139,9 @@
 		F9ABE12C1FD33B0800DBDF9E /* Chatter */ = {
 			isa = PBXGroup;
 			children = (
+				F95B596F1FDADC33006AEC85 /* LoginController.swift */,
+				F95B59711FDAE3D3006AEC85 /* SignUpViewController.swift */,
 				F9ABE12D1FD33B0800DBDF9E /* AppDelegate.swift */,
-				F9ABE12F1FD33B0800DBDF9E /* ViewController.swift */,
 				F9ABE1311FD33B0800DBDF9E /* Main.storyboard */,
 				F9ABE1341FD33B0800DBDF9E /* Assets.xcassets */,
 				F9ABE1361FD33B0800DBDF9E /* LaunchScreen.storyboard */,
@@ -460,8 +463,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9ABE1301FD33B0800DBDF9E /* ViewController.swift in Sources */,
+				F95B59721FDAE3D3006AEC85 /* SignUpViewController.swift in Sources */,
 				F9ABE12E1FD33B0800DBDF9E /* AppDelegate.swift in Sources */,
+				F95B59701FDADC33006AEC85 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

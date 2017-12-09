@@ -9,11 +9,15 @@
 import UIKit
 import Parse
 
-class chatViewController: UIViewController {
+class chatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var chatField: UITextField!
     
     @IBOutlet weak var sendButton: UIButton!
+    
+    @IBOutlet weak var chatTableView: UITableView!
+    
+    var Messages: [PFObject]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,12 +36,35 @@ class chatViewController: UIViewController {
         chatField.layer.borderWidth = 3.0;
         sendButton.layer.borderWidth = 3.0;
         
+        chatTableView.delegate = self;
+        chatTableView.dataSource = self;
+        
+        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.refresh), userInfo: nil, repeats: true)
+
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Messages?.count ?? 0;
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = chatTableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath) as! chatCell
+        
+        let Message = Messages[indexPath.row];
+        
+        if let text = Message["text"] as? String {
+            cell.messageLabel.text = text
+        } else {
+            cell.messageLabel.text = "N/A";
+        }
+        
+        return cell;
     }
     
     @IBAction func onSend(_ sender: Any) {
         if chatField.text != "" {
             let chatMessage = PFObject(className: "Message");
-            chatMessage["Text"] = chatField.text
+            chatMessage["text"] = chatField.text
             
             chatMessage.saveInBackground(block: { (success, error) in
                 if let error = error {
@@ -48,6 +75,20 @@ class chatViewController: UIViewController {
                 }
             })
         }
+    }
+    
+    @objc func refresh() {
+        let query = PFQuery(className: "Message");
+        query.order(byAscending: "createdAt");
+        query.findObjectsInBackground { (Messages: [PFObject]?, error: Error?) in
+            if let Messages = Messages {
+                self.Messages = Messages;
+                self.chatTableView.reloadData();
+            } else {
+                print(error?.localizedDescription ?? "OOPS")
+            }
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {

@@ -78,7 +78,7 @@
                         <outlet property="passwordField" destination="L0p-F0-h7w" id="ed7-WR-VGc"/>
                         <outlet property="signUpButton" destination="sog-VU-f5M" id="Nfg-Px-p45"/>
                         <outlet property="usernameField" destination="JnY-7C-Gmr" id="45K-rN-scX"/>
-                        <segue destination="wQZ-XW-xue" kind="presentation" identifier="loginSegue" id="yGj-HB-loa"/>
+                        <segue destination="ufY-YJ-3f9" kind="presentation" identifier="loginSegue" id="yGj-HB-loa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -97,13 +97,40 @@
                     <view key="view" contentMode="scaleToFill" id="DG8-K2-ZY5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hCe-gl-oub">
+                                <rect key="frame" x="16" y="79" width="262" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mv-CA-9s5">
+                                <rect key="frame" x="286" y="79" width="73" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onSend:" destination="wQZ-XW-xue" eventType="touchUpInside" id="tGU-MV-S1e"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="fKZ-cN-Vjg"/>
                     </view>
+                    <navigationItem key="navigationItem" id="kgG-YU-KO8"/>
+                    <connections>
+                        <outlet property="chatField" destination="hCe-gl-oub" id="X0a-21-zEx"/>
+                        <outlet property="sendButton" destination="2mv-CA-9s5" id="jbr-ZC-DPb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yaX-Uk-Rnz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137" y="1084"/>
+            <point key="canvasLocation" x="133.59999999999999" y="2036.1319340329837"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="UeV-TM-rZM">
@@ -203,6 +230,24 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1205.5999999999999" y="132.68365817091455"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="h9A-Xe-uez">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ufY-YJ-3f9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="G4L-xX-5hM">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wQZ-XW-xue" kind="relationship" relationship="rootViewController" id="gSg-Tx-EQ5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tEk-Xb-y1D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136" y="1083.9580209895053"/>
         </scene>
     </scenes>
 </document>

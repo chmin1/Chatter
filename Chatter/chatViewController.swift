@@ -60,6 +60,12 @@ class chatViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.messageLabel.text = "N/A";
         }
         
+        if let author = Message["user"] as? String {
+            cell.authorLabel.text = author;
+        } else {
+            cell.authorLabel.text = "🤖";
+        }
+        
         return cell;
     }
     
@@ -67,6 +73,7 @@ class chatViewController: UIViewController, UITableViewDelegate, UITableViewData
         if chatField.text != "" {
             let chatMessage = PFObject(className: "Message");
             chatMessage["text"] = chatField.text
+            chatMessage["user"] = PFUser.current()?.username
             
             chatMessage.saveInBackground(block: { (success, error) in
                 if let error = error {
@@ -81,6 +88,7 @@ class chatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @objc func refresh() {
         let query = PFQuery(className: "Message");
+        query.includeKey("user")
         query.order(byAscending: "createdAt");
         query.findObjectsInBackground { (Messages: [PFObject]?, error: Error?) in
             if let Messages = Messages {

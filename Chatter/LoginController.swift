@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class LoginController: UIViewController {
     
@@ -17,6 +18,9 @@ class LoginController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var signUpButton: UIButton!
+    
+    var alertController: UIAlertController!
+    var alertError: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +51,34 @@ class LoginController: UIViewController {
     }
     
     @IBAction func onLogin(_ sender: Any) {
+        let username = usernameField.text ?? ""
+        let password = passwordField.text ?? ""
         
+        PFUser.logInWithUsername(inBackground: username, password: password) { (user: PFUser?, error: Error?) in
+            if let error = error {
+                print("User log in failed: \(error.localizedDescription)")
+                self.alertError = error.localizedDescription
+                self.isLoggedIn()
+            } else {
+                print("User logged in successfully")
+                let vc = chatViewController();
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            }
+        }
+    }
+    
+    func isLoggedIn() {
+        self.alertController = UIAlertController(title: "Login Error", message: alertError, preferredStyle: .alert)
+        
+        //try to connect again
+        let tryAgain = UIAlertAction(title: "Try Again", style: .cancel) { (action) in
+            self.usernameField.text = ""
+            self.passwordField.text = ""
+        }
+        
+        // add action to alertController
+        alertController.addAction(tryAgain)
+        present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func onScreenTap(_ sender: Any) {

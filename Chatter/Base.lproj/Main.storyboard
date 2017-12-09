@@ -78,6 +78,7 @@
                         <outlet property="passwordField" destination="L0p-F0-h7w" id="ed7-WR-VGc"/>
                         <outlet property="signUpButton" destination="sog-VU-f5M" id="Nfg-Px-p45"/>
                         <outlet property="usernameField" destination="JnY-7C-Gmr" id="45K-rN-scX"/>
+                        <segue destination="wQZ-XW-xue" kind="presentation" identifier="loginSegue" id="yGj-HB-loa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -88,6 +89,21 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="31A-ax-jZi">
+            <objects>
+                <viewController id="wQZ-XW-xue" customClass="chatViewController" customModule="Chatter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DG8-K2-ZY5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="fKZ-cN-Vjg"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yaX-Uk-Rnz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137" y="1084"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="UeV-TM-rZM">
